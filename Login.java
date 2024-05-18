@@ -1,0 +1,136 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+
+class Login implements ActionListener,MouseListener{
+    JFrame loginFrame;
+    JButton b1;
+    JLabel lDiaryName,lname,lPassword,lwarning,closeLabel;
+    JPasswordField passwordField;
+    JPanel leftPanel, rightPanel;
+    Login(){
+        loginFrame=new JFrame();
+        loginFrame.setUndecorated(true); 
+        loginFrame.setLayout(null);
+        loginFrame.getContentPane().setBackground(new Color(60,91,111));
+        loginFrame.setSize(1000, 700);
+        loginFrame.setLocation(300, 50);
+        loginFrame.setShape(new RoundRectangle2D.Double(0, 0, loginFrame.getWidth(), loginFrame.getHeight(), 30, 30));
+        //ADDING A NOTEBOOK SPIRAL
+        ImageIcon getSpiralImage = new ImageIcon(ClassLoader.getSystemResource("Image/Spiral.png"));
+        Image scaleSpiralImage = getSpiralImage.getImage().getScaledInstance(490,700, Image.SCALE_DEFAULT);
+        ImageIcon spiralImage = new ImageIcon(scaleSpiralImage);
+        JLabel spiralLabel = new JLabel(spiralImage);
+        spiralLabel.setBounds(450,0,100,700);
+        loginFrame.add(spiralLabel);
+        
+        leftPanel=new JPanel();
+        leftPanel.setBackground(new Color(248,199,148));
+        leftPanel.setBounds(0, 0, 490,700);
+        leftPanel.setLayout(null);
+        loginFrame.add(leftPanel);
+
+        //Adding Back Button
+        
+
+        rightPanel = new JPanel();
+        rightPanel.setBackground(new Color(255, 224, 181));
+        rightPanel.setBounds(510, 0, 490,700);
+        rightPanel.setLayout(null);
+        loginFrame.add(rightPanel);
+
+      
+        ImageIcon getMainImag = new ImageIcon(ClassLoader.getSystemResource("image/MyDiary.png"));
+        Image scaleMainImag = getMainImag.getImage().getScaledInstance(490,200, Image.SCALE_SMOOTH);
+        ImageIcon mainImag = new ImageIcon(scaleMainImag);
+        JLabel mainlLabe = new JLabel(mainImag);
+        mainlLabe.setBounds(0,100,490,400);
+        leftPanel.add(mainlLabe);
+        
+        
+        ImageIcon closeImage = new ImageIcon(ClassLoader.getSystemResource("Image/close.png"));
+        Image scaleCloseImage= closeImage.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        closeImage = new ImageIcon(scaleCloseImage);
+        closeLabel = new JLabel(closeImage);
+        closeLabel.setBounds(450, 5, 25, 25);
+        closeLabel.addMouseListener(this); // Add mouse listener to the image label
+        rightPanel.add(closeLabel);
+
+        lname=new JLabel("Hey Ranjit!");
+        lname.setBounds(130,90,300,80);
+        lname.setFont(new Font("Bell Mt",Font.PLAIN,50));
+        rightPanel.add(lname);
+
+        // lPassword=new JLabel("Enter Your Password.");
+        // lPassword.setBounds(60,260,200,30);
+        // lPassword.setFont(new Font("Bell Mt",Font.PLAIN,20));
+        // rightPanel.add(lPassword);
+
+       
+
+        passwordField= new JPasswordField();
+        passwordField.setBounds(60,292,250,50);
+        // passwordField.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,true));
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Arial", Font.PLAIN, 16), Color.BLACK);
+        passwordField.setBorder(border);
+        passwordField.setBackground(new Color(255, 224, 181));
+        // passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(0,0,0)));
+        rightPanel.add(passwordField);
+
+        
+
+        b1=new JButton("Enter");
+        b1.setBounds(330,300,90,40);
+        b1.setBackground(new Color(248,199,148));
+        b1.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        b1.setFocusable(false);
+        b1.addActionListener(this);
+        rightPanel.add(b1);
+
+        lwarning=new JLabel("");
+        lwarning.setBounds(60,360,300,30);
+        lwarning.setFont(new Font("SAN_SERIF",Font.PLAIN,20));
+        lwarning.setForeground(Color.RED);
+        rightPanel.add(lwarning);
+
+        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        loginFrame.setVisible(true);
+
+       
+    }
+    public void actionPerformed(ActionEvent ae){
+        char[] enteredPassword = passwordField.getPassword();
+        String pass=new String(enteredPassword);
+        if(pass.equals("1245")){
+            loginFrame.setVisible(false);
+            new Options();
+        }
+        else{
+            lwarning.setText("Wrong Password!!");
+        }
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        loginFrame.dispose();
+        
+    }
+    public void mousePressed(MouseEvent e) {
+    }
+
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseExited(MouseEvent e) {
+    }
+    public static void main(String[] args) {
+        new Login();
+    }
+
+
+}
