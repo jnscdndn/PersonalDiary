@@ -154,6 +154,7 @@ public class WritePage implements ActionListener,MouseListener{
         diaryTextArea.setEditable(false);
         diaryTextArea.setLineWrap(true);
         diaryTextArea.setWrapStyleWord(true);
+        diaryTextArea.setFocusable(false);
 
         viewScrollPane = new JScrollPane(diaryTextArea);
         viewScrollPane.getViewport().setOpaque(false);

@@ -93,6 +93,7 @@ public class ReadPage implements MouseListener{
         leftDiaryTextArea.setEditable(false);
         leftDiaryTextArea.setLineWrap(true);
         leftDiaryTextArea.setWrapStyleWord(true);
+        leftDiaryTextArea.setFocusable(false);
 
         leftViewScrollPane = new JScrollPane(leftDiaryTextArea);
         leftViewScrollPane.getViewport().setOpaque(false);
@@ -154,6 +155,7 @@ public class ReadPage implements MouseListener{
         rightDiaryTextArea.setEditable(false);
         rightDiaryTextArea.setLineWrap(true);
         rightDiaryTextArea.setWrapStyleWord(true);
+        rightDiaryTextArea.setFocusable(false);
 
         rightViewScrollPane = new JScrollPane(rightDiaryTextArea);
         rightViewScrollPane.getViewport().setOpaque(false);
