@@ -9,7 +9,7 @@ public class Database {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             // Step 2: Create the connection object  
             con = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:xe", "system", "sree123");  
+                "jdbc:oracle:thin:@localhost:1521:xe", "system", "491415");  
         } catch(Exception e) {
             System.out.println(e);
         }   
