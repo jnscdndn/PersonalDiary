@@ -77,7 +77,6 @@ class Login implements ActionListener,MouseListener{
         Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Arial", Font.PLAIN, 16), Color.BLACK);
         passwordField.setBorder(border);
         passwordField.setBackground(new Color(255, 224, 181));
-        // passwordField.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new Color(0,0,0)));
         rightPanel.add(passwordField);
 
         
