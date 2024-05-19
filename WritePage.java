@@ -1,5 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
+
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
@@ -70,17 +73,18 @@ public class WritePage implements ActionListener,MouseListener{
         writeScrollPane = new JScrollPane(writeArea);
         writeScrollPane.setBounds(30, 130, 400, 400);
         writeScrollPane.getViewport().setOpaque(false);
-        // writeScrollPane.setOpaque(false);
-        writeScrollPane.setBackground(new Color(255, 224, 181));
+        writeScrollPane.setBackground(new Color(248,199,148));
         writeScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        writeScrollPane.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        // writeScrollPane.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Memory", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 16), Color.DARK_GRAY);
+        writeScrollPane.setBorder(border);
         leftPanel.add(writeScrollPane);
 
         // SAVE BUTTON
         saveButton = new JButton("SAVE YOUR MEMORY");
         saveButton.setBounds(270, 550, 160, 50);
         saveButton.setBackground(new Color(255, 224, 181));
-        saveButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        saveButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,false));
         saveButton.setFocusable(false);
         saveButton.addActionListener(this);
         leftPanel.add(saveButton);
@@ -90,7 +94,7 @@ public class WritePage implements ActionListener,MouseListener{
         exitButton = new JButton("CLOSE DIARY");
         exitButton.setBounds(30, 550, 160, 50);
         exitButton.setBackground(new Color(255, 224, 181));
-        exitButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        exitButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,false));
         exitButton.setFocusable(false);
         exitButton.addActionListener(this);
         leftPanel.add(exitButton);

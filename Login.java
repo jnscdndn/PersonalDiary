@@ -74,7 +74,7 @@ class Login implements ActionListener,MouseListener{
         passwordField= new JPasswordField();
         passwordField.setBounds(60,292,250,50);
         // passwordField.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,true));
-        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Arial", Font.PLAIN, 16), Color.BLACK);
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 16), Color.BLACK);
         passwordField.setBorder(border);
         passwordField.setBackground(new Color(255, 224, 181));
         rightPanel.add(passwordField);
@@ -85,13 +85,14 @@ class Login implements ActionListener,MouseListener{
         b1.setBounds(330,300,90,40);
         b1.setBackground(new Color(248,199,148));
         b1.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        b1.setFont(new Font("Bell Mt",Font.PLAIN,20));
         b1.setFocusable(false);
         b1.addActionListener(this);
         rightPanel.add(b1);
 
         lwarning=new JLabel("");
         lwarning.setBounds(60,360,300,30);
-        lwarning.setFont(new Font("SAN_SERIF",Font.PLAIN,20));
+        lwarning.setFont(new Font("Bell Mt",Font.PLAIN,20));
         lwarning.setForeground(Color.RED);
         rightPanel.add(lwarning);
 
