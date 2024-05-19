@@ -109,6 +109,7 @@ public class ReadPage implements MouseListener{
         Image scalePageBackImage = getPageBackImage.getImage().getScaledInstance(30, 70, Image.SCALE_SMOOTH);
         ImageIcon leftTextImage = new ImageIcon(scalePageBackImage);
         pageBackLabel = new JLabel(leftTextImage);
+        pageBackLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         pageBackLabel.setBounds(0, 50, 30, 650);
         pageBackLabel.addMouseListener(this); // Add mouse listener to the image label
         leftPanel.add(pageBackLabel);
@@ -171,6 +172,7 @@ public class ReadPage implements MouseListener{
         Image scalePageForwardImage = getPageForwardImage.getImage().getScaledInstance(30, 70, Image.SCALE_SMOOTH);
         ImageIcon rightTextImage = new ImageIcon(scalePageForwardImage);
         pageForwardLabel = new JLabel(rightTextImage);
+        pageForwardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         pageForwardLabel.setBounds(460, 50, 30, 650);
         pageForwardLabel.addMouseListener(this); // Add mouse listener to the image label
         rightPanel.add(pageForwardLabel);
@@ -252,6 +254,10 @@ public class ReadPage implements MouseListener{
     }
 
     public void mouseEntered(MouseEvent e) {
+        pageBackLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        pageForwardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+        
     }
 
     public void mouseExited(MouseEvent e) {
