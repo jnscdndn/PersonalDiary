@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DayOfWeek;
 
-public class ReadPage implements MouseListener{
+public class ReadPage implements MouseListener, KeyListener{
     int backClicks = 0;
     JFrame readPageFrame;
     JPanel leftPanel, rightPanel;
@@ -34,6 +34,7 @@ public class ReadPage implements MouseListener{
         readPageFrame.setSize(1000, 700);
         readPageFrame.setLocation(300, 50);
         readPageFrame.setShape(new RoundRectangle2D.Double(0, 0, readPageFrame.getWidth(), readPageFrame.getHeight(), 30, 30));
+        readPageFrame.addKeyListener(this);
 
         // ADDING A NOTEBOOK SPIRAL
         ImageIcon getSpiralImage = new ImageIcon(ClassLoader.getSystemResource("Image/Spiral.png"));
@@ -263,6 +264,32 @@ public class ReadPage implements MouseListener{
     }
 
     public void mouseExited(MouseEvent e) {
+    }
+
+
+    // KEY LISTNERS
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+            if(this.backClicks == 0){
+                readPageFrame.setVisible(false);
+                new WritePage(con);
+            }
+            else{
+                this.backClicks -= 2;
+                updateContent();
+            }
+        }
+        else if(e.getKeyCode()==KeyEvent.VK_LEFT){
+            this.backClicks += 2;
+            updateContent();
+        }
+
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
+    public void keyTyped(KeyEvent e) {
     }
 
     public static void main(String[] args) {
