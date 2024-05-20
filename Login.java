@@ -5,9 +5,9 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-class Login implements ActionListener,MouseListener{
+class Login implements ActionListener,MouseListener,KeyListener {
     JFrame loginFrame;
-    JButton b1;
+    JButton enterButton;
     JLabel lDiaryName,lname,lPassword,lwarning,closeLabel;
     JPasswordField passwordField;
     JPanel leftPanel, rightPanel;
@@ -80,22 +80,22 @@ class Login implements ActionListener,MouseListener{
         passwordField.setBorder(border);
         passwordField.setBackground(new Color(118,60,56));
         passwordField.setForeground(Color.WHITE);
+        passwordField.addKeyListener(this);
         passwordField.setFont(new Font("Bell Mt",Font.PLAIN,20));
 
         rightPanel.add(passwordField);
 
         
 
-        b1=new JButton("Enter");
-        b1.setBounds(330,300,90,40);
-        b1.setBackground(new Color(248,199,148));
-        b1.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
-        b1.setFont(new Font("Bell Mt",Font.BOLD,20));
-        b1.setFocusable(false);
-        b1.addActionListener(this);
-        b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        rightPanel.add(b1);
+        enterButton=new JButton("Enter");
+        enterButton.setBounds(330,300,90,40);
+        enterButton.setBackground(new Color(248,199,148));
+        enterButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
+        enterButton.setFont(new Font("Bell Mt",Font.BOLD,20));
+        enterButton.setFocusable(false);
+        enterButton.addActionListener(this);
+        enterButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        rightPanel.add(enterButton);
 
         lwarning=new JLabel("");
         lwarning.setBounds(60,360,300,30);
@@ -119,6 +119,21 @@ class Login implements ActionListener,MouseListener{
             lwarning.setText("Wrong Password!!");
         }
     }
+
+
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            actionPerformed(null);
+        }
+
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
+    public void keyTyped(KeyEvent e) {
+    }
+
 
     public void mouseClicked(MouseEvent e) {
         loginFrame.dispose();
