@@ -31,7 +31,7 @@ public class Options implements ActionListener,MouseListener{
 
         //LEFT PANEL FOR REVISIT YOUR MEMORIES
         leftPanel = new JPanel();
-        leftPanel.setBackground(new Color(182,155,124));
+        leftPanel.setBackground(new Color(118,60,56));
         leftPanel.setBounds(0, 0, 490,700);
         leftPanel.setLayout(null);
         optionsFrame.add(leftPanel);
@@ -41,14 +41,16 @@ public class Options implements ActionListener,MouseListener{
         revisitQuotLabel.setForeground(new Color(0,0,0));
         revisitQuotLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
         revisitQuotLabel.setBounds(50,30,400,200);
+        revisitQuotLabel.setForeground(Color.WHITE);
         leftPanel.add(revisitQuotLabel);
 
         readButton = new JButton("READ YOUR MEMORIES");
         readButton.setBounds(40, 550, 200, 50);
         readButton.setFont(new Font("Bitstream Vera Sans",Font.BOLD,15));
-        readButton.setBackground(new Color(224,200,171));
-        readButton.setBorder(BorderFactory.createLineBorder(new Color(0,0,0),1));
+        readButton.setBackground(new Color(161, 162, 166));
+        readButton.setBorder(BorderFactory.createLineBorder(new Color(0,0,0),2));
         readButton.setFocusable(false);
+        readButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         readButton.addActionListener(this);
         leftPanel.add(readButton);
 
@@ -58,7 +60,7 @@ public class Options implements ActionListener,MouseListener{
 
         // RIGHT PANEL FOR WRITING A NEW PAGE INTO DIARY
         rightPanel = new JPanel();
-        rightPanel.setBackground(new Color(224,200,171));
+        rightPanel.setBackground(new Color(186,108,91));
         rightPanel.setBounds(510, 0, 490,700);
         rightPanel.setLayout(null);
         optionsFrame.add(rightPanel);
@@ -67,6 +69,7 @@ public class Options implements ActionListener,MouseListener{
         Image scaleCloseImage= closeImage.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         closeImage = new ImageIcon(scaleCloseImage);
         closeLabel = new JLabel(closeImage);
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         closeLabel.setBounds(450, 5, 25, 25);
         closeLabel.addMouseListener(this); // Add mouse listener to the image label
         rightPanel.add(closeLabel);
@@ -74,6 +77,7 @@ public class Options implements ActionListener,MouseListener{
         newPageQuotLabel = new JLabel("<html>Continue your story by adding a new chapter...<html>");
         newPageQuotLabel.setForeground(new Color(0,0,0));
         newPageQuotLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
+        newPageQuotLabel.setForeground(Color.WHITE);
         newPageQuotLabel.setBounds(50,30,400,200);
         rightPanel.add(newPageQuotLabel);
         
@@ -81,10 +85,11 @@ public class Options implements ActionListener,MouseListener{
         writeButton = new JButton("WRITE A PAGE");
         writeButton.setFont(new Font("Bitstream Vera Sans",Font.BOLD,15));
         writeButton.setBounds(250, 550, 200, 50);
-        writeButton.setBackground(new Color(182,155,124));
-        writeButton.setBorder(BorderFactory.createLineBorder(new Color(0,0,0),1));
+        writeButton.setBackground(new Color(216, 174, 126));
+        writeButton.setBorder(BorderFactory.createLineBorder(new Color(0,0,0),2));
         writeButton.setFocusable(false);
         writeButton.addActionListener(this);
+        writeButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         rightPanel.add(writeButton);
         
 
@@ -118,6 +123,8 @@ public class Options implements ActionListener,MouseListener{
     }
 
     public void mouseEntered(MouseEvent e) {
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }
 
     public void mouseExited(MouseEvent e) {

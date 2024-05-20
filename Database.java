@@ -12,7 +12,7 @@ public class Database {
                 "jdbc:oracle:thin:@localhost:1522:xe", "system", "sree123");  
         } catch(Exception e) {
             System.out.println(e);
-        }   
+        }
         return con;
     }
     public String getMemory(String formattedDate,Connection con){

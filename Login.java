@@ -28,7 +28,7 @@ class Login implements ActionListener,MouseListener{
         loginFrame.add(spiralLabel);
         
         leftPanel=new JPanel();
-        leftPanel.setBackground(new Color(248,199,148));
+        leftPanel.setBackground(new Color(51,13,14));
         leftPanel.setBounds(0, 0, 490,700);
         leftPanel.setLayout(null);
         loginFrame.add(leftPanel);
@@ -37,17 +37,17 @@ class Login implements ActionListener,MouseListener{
         
 
         rightPanel = new JPanel();
-        rightPanel.setBackground(new Color(255, 224, 181));
+        rightPanel.setBackground(new Color(118,60,56));
         rightPanel.setBounds(510, 0, 490,700);
         rightPanel.setLayout(null);
         loginFrame.add(rightPanel);
 
       
         ImageIcon getMainImag = new ImageIcon(ClassLoader.getSystemResource("image/MyDiary.png"));
-        Image scaleMainImag = getMainImag.getImage().getScaledInstance(490,200, Image.SCALE_SMOOTH);
+        Image scaleMainImag = getMainImag.getImage().getScaledInstance(440,280, Image.SCALE_SMOOTH);
         ImageIcon mainImag = new ImageIcon(scaleMainImag);
         JLabel mainlLabe = new JLabel(mainImag);
-        mainlLabe.setBounds(0,100,490,400);
+        mainlLabe.setBounds(20,150,440,300);
         leftPanel.add(mainlLabe);
         
         
@@ -55,12 +55,14 @@ class Login implements ActionListener,MouseListener{
         Image scaleCloseImage= closeImage.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         closeImage = new ImageIcon(scaleCloseImage);
         closeLabel = new JLabel(closeImage);
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         closeLabel.setBounds(450, 5, 25, 25);
         closeLabel.addMouseListener(this); // Add mouse listener to the image label
         rightPanel.add(closeLabel);
 
         lname=new JLabel("Hey Ranjit!");
         lname.setBounds(130,90,300,80);
+        lname.setForeground(Color.WHITE);
         lname.setFont(new Font("Bell Mt",Font.PLAIN,50));
         rightPanel.add(lname);
 
@@ -74,9 +76,12 @@ class Login implements ActionListener,MouseListener{
         passwordField= new JPasswordField();
         passwordField.setBounds(60,292,250,50);
         // passwordField.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,true));
-        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 16), Color.BLACK);
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.WHITE), "Password", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 16), Color.WHITE);
         passwordField.setBorder(border);
-        passwordField.setBackground(new Color(255, 224, 181));
+        passwordField.setBackground(new Color(118,60,56));
+        passwordField.setForeground(Color.WHITE);
+        passwordField.setFont(new Font("Bell Mt",Font.PLAIN,20));
+
         rightPanel.add(passwordField);
 
         
@@ -85,15 +90,17 @@ class Login implements ActionListener,MouseListener{
         b1.setBounds(330,300,90,40);
         b1.setBackground(new Color(248,199,148));
         b1.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
-        b1.setFont(new Font("Bell Mt",Font.PLAIN,20));
+        b1.setFont(new Font("Bell Mt",Font.BOLD,20));
         b1.setFocusable(false);
         b1.addActionListener(this);
+        b1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
         rightPanel.add(b1);
 
         lwarning=new JLabel("");
         lwarning.setBounds(60,360,300,30);
         lwarning.setFont(new Font("Bell Mt",Font.PLAIN,20));
-        lwarning.setForeground(Color.RED);
+        lwarning.setForeground(Color.WHITE);
         rightPanel.add(lwarning);
 
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,6 +131,8 @@ class Login implements ActionListener,MouseListener{
     }
 
     public void mouseEntered(MouseEvent e) {
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }
 
     public void mouseExited(MouseEvent e) {

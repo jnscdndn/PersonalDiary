@@ -61,6 +61,7 @@ public class ReadPage implements MouseListener{
 
         ImageIcon getBackArrowImage = new ImageIcon(ClassLoader.getSystemResource("Image/back_arrow.png"));
         backArrowLabel = new JLabel(getBackArrowImage);
+        backArrowLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         backArrowLabel.setBounds(5, 5, 25, 25);
         backArrowLabel.addMouseListener(this); // Add mouse listener to the image label
         leftPanel.add(backArrowLabel);
@@ -126,6 +127,7 @@ public class ReadPage implements MouseListener{
         Image scaleCloseImage = closeImage.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
         closeImage = new ImageIcon(scaleCloseImage);
         closeLabel = new JLabel(closeImage);
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         closeLabel.setBounds(450, 5, 25, 25);
         closeLabel.addMouseListener(this); // Add mouse listener to the image label
         rightPanel.add(closeLabel);
@@ -256,8 +258,8 @@ public class ReadPage implements MouseListener{
     public void mouseEntered(MouseEvent e) {
         pageBackLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
         pageForwardLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-
-        
+        closeLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backArrowLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));     
     }
 
     public void mouseExited(MouseEvent e) {

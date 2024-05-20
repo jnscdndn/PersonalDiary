@@ -13,7 +13,7 @@ import java.time.DayOfWeek;
 public class WritePage implements ActionListener,MouseListener{
     JFrame writingFrame;
     JPanel leftPanel, rightPanel;
-    JLabel writePageLabel, newPageQuotLabel,dateLabel,dayLabel,yearLabel,weakLabel,monthLabel;
+    JLabel writePageLabel, newPageQuotLabel,dateLabel,dayLabel,yearLabel,weakLabel,monthLabel,backArrowLabel;
     JTextArea writeArea,diaryTextArea;
     JButton exitButton, saveButton;
     JScrollPane writeScrollPane,viewScrollPane;
@@ -50,7 +50,7 @@ public class WritePage implements ActionListener,MouseListener{
 
         //ADDING BACK ARROW
         ImageIcon getBackArrowImage = new ImageIcon(ClassLoader.getSystemResource("Image/back_arrow.png"));
-        JLabel backArrowLabel = new JLabel(getBackArrowImage);
+        backArrowLabel = new JLabel(getBackArrowImage);
         backArrowLabel.setBounds(5, 20, 30, 30);
         backArrowLabel.addMouseListener(this); // Add mouse listener to the image label
         leftPanel.add(backArrowLabel);
@@ -86,6 +86,7 @@ public class WritePage implements ActionListener,MouseListener{
         saveButton.setBackground(new Color(255, 224, 181));
         saveButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,false));
         saveButton.setFocusable(false);
+        saveButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         saveButton.addActionListener(this);
         leftPanel.add(saveButton);
 
@@ -97,6 +98,7 @@ public class WritePage implements ActionListener,MouseListener{
         exitButton.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2,false));
         exitButton.setFocusable(false);
         exitButton.addActionListener(this);
+        exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         leftPanel.add(exitButton);
 
 
@@ -227,6 +229,7 @@ public class WritePage implements ActionListener,MouseListener{
     }
 
     public void mouseEntered(MouseEvent e) {
+        backArrowLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));  
     }
 
     public void mouseExited(MouseEvent e) {
