@@ -29,6 +29,7 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         writingFrame.setSize(1000, 700);
         writingFrame.setLocation(300, 50);
         writingFrame.setShape(new RoundRectangle2D.Double(0, 0, writingFrame.getWidth(), writingFrame.getHeight(), 30, 30));
+        // writingFrame.addKeyListener(this);
         
 
         //ADDING A NOTEBOOK SPIRAL
@@ -71,6 +72,7 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         writeArea.setOpaque(false);
         writeArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         writeArea.addKeyListener(this);
+        writeArea.requestFocusInWindow();
         writeScrollPane = new JScrollPane(writeArea);
         writeScrollPane.setBounds(30, 130, 400, 400);
         writeScrollPane.getViewport().setOpaque(false);
@@ -176,6 +178,7 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
 
         writingFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         writingFrame.setVisible(true);
+        writingFrame.requestFocusInWindow();
     }
   
     public void actionPerformed(ActionEvent ae){
@@ -267,6 +270,11 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
             }
         
         }
+        // else if (e.getKeyCode()==KeyEvent.VK_LEFT){
+        //     writingFrame.dispose();
+        //     new ReadPage(0,con);
+
+        // }
 
     }
 
