@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 
-public class Front implements MouseListener {
+public class Front implements MouseListener,KeyListener {
     JFrame frontFrame;
     JLabel openDiary;
     Front() {
@@ -15,6 +15,8 @@ public class Front implements MouseListener {
         frontFrame.setSize(510, 700);
         frontFrame.setShape(new RoundRectangle2D.Double(0, 0, 510, 700, 0, 30));
         frontFrame.setLocation(500, 50);
+        frontFrame.addKeyListener(this);
+
 
         // OPEN BUTTON USING IMAGE
         openDiary = new JLabel("Open");
@@ -65,6 +67,18 @@ public class Front implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            mouseClicked(null);
+        }
+
+    }
+
+    public void keyReleased(KeyEvent e) {
+    }
+
+    public void keyTyped(KeyEvent e) {
     }
 
     public static void main(String[] args) {

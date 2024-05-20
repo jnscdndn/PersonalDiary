@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DayOfWeek;
 
-public class WritePage implements ActionListener,MouseListener{
+public class WritePage implements ActionListener,MouseListener,KeyListener{
     JFrame writingFrame;
     JPanel leftPanel, rightPanel;
     JLabel writePageLabel, newPageQuotLabel,dateLabel,dayLabel,yearLabel,weakLabel,monthLabel,backArrowLabel;
@@ -70,6 +70,7 @@ public class WritePage implements ActionListener,MouseListener{
         writeArea.setWrapStyleWord(true);
         writeArea.setOpaque(false);
         writeArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+        writeArea.addKeyListener(this);
         writeScrollPane = new JScrollPane(writeArea);
         writeScrollPane.setBounds(30, 130, 400, 400);
         writeScrollPane.getViewport().setOpaque(false);
@@ -188,7 +189,7 @@ public class WritePage implements ActionListener,MouseListener{
                 String query="";
                 memory=new Database().getMemory(formattedDate,con);
                 memory=memory.replace("'","''");
-                System.out.println(memory);
+                // System.out.println(memory);
                 if(writeArea.getText().length()>0){
                     if(memory==""){
                         memory=writeArea.getText();
@@ -233,6 +234,49 @@ public class WritePage implements ActionListener,MouseListener{
     }
 
     public void mouseExited(MouseEvent e) {
+    }
+
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            try{
+                Statement statement = con.createStatement();
+                String query="";
+                memory=new Database().getMemory(formattedDate,con);
+                memory=memory.replace("'","''");
+                // System.out.println(memory);
+                if(writeArea.getText().length()>0){
+                    if(memory==""){
+                        memory=writeArea.getText();
+                        query = "Insert into personaldiary values('" + formattedDate + "','"+ weekDay +"','"+ writeArea.getText() +"')";
+                    }
+                    else{
+                        memory=memory+"\n"+writeArea.getText();
+  
+                        query = "Update personaldiary set memory='"+ memory +"' where edate='" + formattedDate + "'";
+                    }
+                    statement.executeUpdate(query);
+                }
+               
+                memory=new Database().getMemory(formattedDate,con);
+                diaryTextArea.setText(memory);
+                writeArea.setText("");
+                statement.close();
+            }
+            catch(SQLException se){
+                System.out.println(se);
+            }
+        
+        }
+
+    }
+
+    public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER){
+            writeArea.setText(null);
+        }
+    }
+
+    public void keyTyped(KeyEvent e) {
     }
 
     public static void main(String[] args) {
