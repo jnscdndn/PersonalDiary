@@ -80,8 +80,4 @@ public class Front implements MouseListener,KeyListener {
 
     public void keyTyped(KeyEvent e) {
     }
-
-    public static void main(String[] args) {
-        new Front();
-    }
 }

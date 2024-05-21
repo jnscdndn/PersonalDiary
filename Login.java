@@ -152,9 +152,4 @@ class Login implements ActionListener,MouseListener,KeyListener {
 
     public void mouseExited(MouseEvent e) {
     }
-    public static void main(String[] args) {
-        new Login();
-    }
-
-
 }

@@ -129,7 +129,4 @@ public class Options implements ActionListener,MouseListener{
 
     public void mouseExited(MouseEvent e) {
     }
-    public static void main(String[] args) {
-        new Options();
-    }
 }
