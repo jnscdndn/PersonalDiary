@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.DayOfWeek;
 
-public class WritePage implements ActionListener,MouseListener,KeyListener{
+public class WritePage implements ActionListener,MouseListener{
     JFrame writingFrame;
     JPanel leftPanel, rightPanel;
     JLabel writePageLabel, newPageQuotLabel,dateLabel,dayLabel,yearLabel,weakLabel,monthLabel,backArrowLabel;
@@ -71,7 +71,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         writeArea.setWrapStyleWord(true);
         writeArea.setOpaque(false);
         writeArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-        writeArea.addKeyListener(this);
         writeArea.requestFocusInWindow();
         writeScrollPane = new JScrollPane(writeArea);
         writeScrollPane.setBounds(30, 130, 400, 400);
@@ -130,8 +129,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         String month=formattedDate.substring(3,5);
         String year=formattedDate.substring(6, 10);
 
-
-
         // CREATING LABES FOR DATES
         monthLabel = new JLabel(month);
         monthLabel.setFont(new Font("Ariel", Font.BOLD, 20));
@@ -152,7 +149,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         weakLabel.setFont(new Font("Ariel", Font.BOLD, 15));
         weakLabel.setBounds(80,30,100,20);
         rightPanel.add(weakLabel);
-        
 
         // Create a JTextArea instead of a JLabel
         memory=new Database().getMemory(formattedDate,con);
@@ -174,8 +170,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
         viewScrollPane.setBounds(35, 74, 440, 580);
         rightPanel.add(viewScrollPane);
 
-
-
         writingFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         writingFrame.setVisible(true);
         writingFrame.requestFocusInWindow();
@@ -191,8 +185,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
                 Statement statement = con.createStatement();
                 String query="";
                 memory=new Database().getMemory(formattedDate,con);
-                memory=memory.replace("'","''");
-                // System.out.println(memory);
                 if(writeArea.getText().length()>0){
                     if(memory==""){
                         memory=writeArea.getText();
@@ -215,9 +207,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
                 System.out.println(se);
             }
             
-
-          
-    // Rest of your code
         }
 
     }
@@ -237,54 +226,6 @@ public class WritePage implements ActionListener,MouseListener,KeyListener{
     }
 
     public void mouseExited(MouseEvent e) {
-    }
-
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            try{
-                Statement statement = con.createStatement();
-                String query="";
-                memory=new Database().getMemory(formattedDate,con);
-                memory=memory.replace("'","''");
-                // System.out.println(memory);
-                if(writeArea.getText().length()>0){
-                    if(memory==""){
-                        memory=writeArea.getText();
-                        query = "Insert into personaldiary values('" + formattedDate + "','"+ weekDay +"','"+ writeArea.getText() +"')";
-                    }
-                    else{
-                        memory=memory+"\n"+writeArea.getText();
-  
-                        query = "Update personaldiary set memory='"+ memory +"' where edate='" + formattedDate + "'";
-                    }
-                    statement.executeUpdate(query);
-                }
-               
-                memory=new Database().getMemory(formattedDate,con);
-                diaryTextArea.setText(memory);
-                writeArea.setText("");
-                statement.close();
-            }
-            catch(SQLException se){
-                System.out.println(se);
-            }
-        
-        }
-        // else if (e.getKeyCode()==KeyEvent.VK_LEFT){
-        //     writingFrame.dispose();
-        //     new ReadPage(0,con);
-
-        // }
-
-    }
-
-    public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER){
-            writeArea.setText(null);
-        }
-    }
-
-    public void keyTyped(KeyEvent e) {
     }
 
     public static void main(String[] args) {
