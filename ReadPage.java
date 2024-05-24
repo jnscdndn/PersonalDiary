@@ -58,7 +58,7 @@ public class ReadPage implements MouseListener, KeyListener{
         
         // LEFT PANEL VIEWING
         leftPanel = new JPanel();
-        leftPanel.setBackground(new Color(248,199,148));
+        leftPanel.setBackground(new Color(186,108,91));
         leftPanel.setBounds(0, 0, 490, 700);
         leftPanel.setLayout(null);
         readPageFrame.add(leftPanel);
@@ -75,21 +75,25 @@ public class ReadPage implements MouseListener, KeyListener{
         leftMonthLabel = new JLabel();
         leftMonthLabel.setFont(new Font("Ariel", Font.BOLD, 20));
         leftMonthLabel.setBounds(420, 10, 40, 20);
+        leftMonthLabel.setForeground(Color.WHITE);
         leftPanel.add(leftMonthLabel);
         
         leftYearLabel = new JLabel();
         leftYearLabel.setFont(new Font("Ariel", Font.BOLD, 15));
         leftYearLabel.setBounds(410, 35, 40, 20);
+        leftYearLabel.setForeground(Color.WHITE);
         leftPanel.add(leftYearLabel);
 
         leftDayLabel = new JLabel();
         leftDayLabel.setFont(new Font("Ariel", Font.BOLD, 35));
         leftDayLabel.setBounds(40, 15, 60, 40);
+        leftDayLabel.setForeground(Color.WHITE);
         leftPanel.add(leftDayLabel);
 
         leftWeekLabel = new JLabel();
         leftWeekLabel.setFont(new Font("Ariel", Font.BOLD, 15));
         leftWeekLabel.setBounds(90, 30, 100, 20);
+        leftWeekLabel.setForeground(Color.WHITE);
         leftPanel.add(leftWeekLabel);
 
         leftDiaryTextArea = new JTextArea();
@@ -99,13 +103,14 @@ public class ReadPage implements MouseListener, KeyListener{
         leftDiaryTextArea.setLineWrap(true);
         leftDiaryTextArea.setWrapStyleWord(true);
         leftDiaryTextArea.setFocusable(false);
+        leftDiaryTextArea.setForeground(Color.WHITE);
 
         leftViewScrollPane = new JScrollPane(leftDiaryTextArea);
         leftViewScrollPane.getViewport().setOpaque(false);
-        leftViewScrollPane.setBackground(new Color(248,199,148));
+        leftViewScrollPane.setBackground(new Color(186,108,91));
         leftViewScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         leftViewScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        leftViewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(248,199,148), 2));
+        leftViewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(186,108,91), 2));
         leftViewScrollPane.setBounds(35, 74, 430, 580);
         leftPanel.add(leftViewScrollPane);
 
@@ -121,7 +126,7 @@ public class ReadPage implements MouseListener, KeyListener{
 
         // RIGHT PANEL VIEWING
         rightPanel = new JPanel();
-        rightPanel.setBackground(new Color(248,199,148));
+        rightPanel.setBackground(new Color(186,108,91));
         rightPanel.setBounds(510, 0, 490, 700);
         rightPanel.setLayout(null);
         readPageFrame.add(rightPanel);
@@ -139,21 +144,25 @@ public class ReadPage implements MouseListener, KeyListener{
         rightMonthLabel = new JLabel();
         rightMonthLabel.setFont(new Font("Ariel", Font.BOLD, 20));
         rightMonthLabel.setBounds(400, 10, 40, 20);
+        rightMonthLabel.setForeground(Color.WHITE);
         rightPanel.add(rightMonthLabel);
 
         rightYearLabel = new JLabel();
         rightYearLabel.setFont(new Font("Ariel", Font.BOLD, 15));
         rightYearLabel.setBounds(390, 35, 40, 20);
+        rightYearLabel.setForeground(Color.WHITE);
         rightPanel.add(rightYearLabel);
 
         rightDayLabel = new JLabel();
         rightDayLabel.setFont(new Font("Ariel", Font.BOLD, 35));
         rightDayLabel.setBounds(30, 15, 60, 40);
+        rightDayLabel.setForeground(Color.WHITE);
         rightPanel.add(rightDayLabel);
 
         rightWeekLabel = new JLabel();
         rightWeekLabel.setFont(new Font("Ariel", Font.BOLD, 15));
         rightWeekLabel.setBounds(80, 30, 100, 20);
+        rightWeekLabel.setForeground(Color.WHITE);
         rightPanel.add(rightWeekLabel);
 
         rightDiaryTextArea = new JTextArea();
@@ -163,13 +172,14 @@ public class ReadPage implements MouseListener, KeyListener{
         rightDiaryTextArea.setLineWrap(true);
         rightDiaryTextArea.setWrapStyleWord(true);
         rightDiaryTextArea.setFocusable(false);
+        rightDiaryTextArea.setForeground(Color.WHITE);
 
         rightViewScrollPane = new JScrollPane(rightDiaryTextArea);
         rightViewScrollPane.getViewport().setOpaque(false);
-        rightViewScrollPane.setBackground(new Color(248,199,148));
+        rightViewScrollPane.setBackground(new Color(186,108,91));
         rightViewScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         rightViewScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        rightViewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(248,199,148), 2));
+        rightViewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(186,108,91), 2));
         rightViewScrollPane.setBounds(35, 74, 430, 580);
         rightPanel.add(rightViewScrollPane);
 
@@ -295,7 +305,5 @@ public class ReadPage implements MouseListener, KeyListener{
     public void keyTyped(KeyEvent e) {
     }
 
-    public static void main(String[] args) {
-        // new ReadPage(0,);
-    }
+    
 }

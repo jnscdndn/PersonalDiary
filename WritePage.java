@@ -46,7 +46,7 @@ public class WritePage implements ActionListener,MouseListener{
 
         //LEFT PANEL FOR WRITING
         leftPanel = new JPanel();
-        leftPanel.setBackground(new Color(248,199,148));
+        leftPanel.setBackground(new Color(118,60,56));
         leftPanel.setBounds(0, 0, 490,700);
         leftPanel.setLayout(null);
         writingFrame.add(leftPanel);
@@ -62,6 +62,7 @@ public class WritePage implements ActionListener,MouseListener{
 
         // WRITING PAGE MESSAGE
         writePageLabel = new JLabel("<html>Enter your thoughts..<html>");
+        writePageLabel.setForeground(Color.WHITE);
         writePageLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
         writePageLabel.setBounds(50,30,350,100);
         leftPanel.add(writePageLabel);
@@ -81,7 +82,7 @@ public class WritePage implements ActionListener,MouseListener{
         writeScrollPane.setBackground(new Color(248,199,148));
         writeScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         // writeScrollPane.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
-        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Memory", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 16), Color.DARK_GRAY);
+        Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "Memory", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 20), Color.DARK_GRAY);
         writeScrollPane.setBorder(border);
         leftPanel.add(writeScrollPane);
 
@@ -109,7 +110,7 @@ public class WritePage implements ActionListener,MouseListener{
 
         // RIGHT PANEL FOR PREVIEW
         rightPanel = new JPanel();
-        rightPanel.setBackground(new Color(255, 224, 181));
+        rightPanel.setBackground(new Color(186,108,91));
         rightPanel.setBounds(510, 0, 490,700);
         rightPanel.setLayout(null);
         writingFrame.add(rightPanel);
@@ -135,21 +136,25 @@ public class WritePage implements ActionListener,MouseListener{
         // CREATING LABES FOR DATES
         monthLabel = new JLabel(month);
         monthLabel.setFont(new Font("Ariel", Font.BOLD, 20));
+        monthLabel.setForeground(Color.WHITE);
         monthLabel.setBounds(420,10,40,20);
         rightPanel.add(monthLabel);
 
         yearLabel = new JLabel(year);
         yearLabel.setFont(new Font("Ariel", Font.BOLD, 15));
+        yearLabel.setForeground(Color.WHITE);
         yearLabel.setBounds(410,35,40,20);
         rightPanel.add(yearLabel);
 
         dayLabel = new JLabel(day);
         dayLabel.setFont(new Font("Ariel", Font.BOLD, 35));
+        dayLabel.setForeground(Color.WHITE);
         dayLabel.setBounds(30,15,60,40);
         rightPanel.add(dayLabel);
 
         weakLabel = new JLabel(weekDay);
         weakLabel.setFont(new Font("Ariel", Font.BOLD, 15));
+        weakLabel.setForeground(Color.WHITE);
         weakLabel.setBounds(80,30,100,20);
         rightPanel.add(weakLabel);
 
@@ -161,15 +166,16 @@ public class WritePage implements ActionListener,MouseListener{
         diaryTextArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 25));
         diaryTextArea.setEditable(false);
         diaryTextArea.setLineWrap(true);
+        diaryTextArea.setForeground(Color.WHITE);
         diaryTextArea.setWrapStyleWord(true);
         diaryTextArea.setFocusable(false);
 
         viewScrollPane = new JScrollPane(diaryTextArea);
         viewScrollPane.getViewport().setOpaque(false);
-        viewScrollPane.setBackground(new Color(255, 224, 181));
+        viewScrollPane.setBackground(new Color(186,108,91));
         viewScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         viewScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        viewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(255, 224, 181), 2));
+        viewScrollPane.setBorder(BorderFactory.createLineBorder(new Color(186,108,91), 2));
         viewScrollPane.setBounds(35, 74, 440, 580);
         rightPanel.add(viewScrollPane);
 
