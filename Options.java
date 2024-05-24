@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.Connection;
 
-public class Options implements ActionListener,MouseListener,KeyListener{
+public class Options implements ActionListener,MouseListener{
     Connection con=new Database().getConnection();
     JFrame optionsFrame;
     JPanel leftPanel, rightPanel;
@@ -21,7 +21,6 @@ public class Options implements ActionListener,MouseListener,KeyListener{
         Image logo=logoIcon.getImage();
         optionsFrame.setIconImage(logo);
         optionsFrame.setShape(new RoundRectangle2D.Double(0, 0, optionsFrame.getWidth(), optionsFrame.getHeight(), 30, 30));
-        optionsFrame.addKeyListener(this);
 
         //ADDING A NOTEBOOK SPIRAL
         ImageIcon getSpiralImage = new ImageIcon(ClassLoader.getSystemResource("Image/Spiral.png"));
@@ -130,23 +129,5 @@ public class Options implements ActionListener,MouseListener,KeyListener{
     }
 
     public void mouseExited(MouseEvent e) {
-    }
-
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-            optionsFrame.setVisible(false);
-            new WritePage(con);
-        }
-        else if(e.getKeyCode()==KeyEvent.VK_LEFT){
-            optionsFrame.setVisible(false);
-            new ReadPage(0,con);
-        }
-
-    }
-
-    public void keyReleased(KeyEvent e) {
-    }
-
-    public void keyTyped(KeyEvent e) {
     }
 }
