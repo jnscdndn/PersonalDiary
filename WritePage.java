@@ -28,6 +28,9 @@ public class WritePage implements ActionListener,MouseListener{
         writingFrame.getContentPane().setBackground(new Color(60,91,111));
         writingFrame.setSize(1000, 700);
         writingFrame.setLocation(300, 50);
+        ImageIcon logoIcon = new ImageIcon("Image/icon.png");
+        Image logo=logoIcon.getImage();
+        writingFrame.setIconImage(logo);
         writingFrame.setShape(new RoundRectangle2D.Double(0, 0, writingFrame.getWidth(), writingFrame.getHeight(), 30, 30));
         // writingFrame.addKeyListener(this);
         

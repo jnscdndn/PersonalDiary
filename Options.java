@@ -17,6 +17,9 @@ public class Options implements ActionListener,MouseListener{
         optionsFrame.setLayout(null);
         optionsFrame.setSize(1000, 700);
         optionsFrame.setLocation(300, 50);
+        ImageIcon logoIcon = new ImageIcon("Image/icon.png");
+        Image logo=logoIcon.getImage();
+        optionsFrame.setIconImage(logo);
         optionsFrame.setShape(new RoundRectangle2D.Double(0, 0, optionsFrame.getWidth(), optionsFrame.getHeight(), 30, 30));
         
 

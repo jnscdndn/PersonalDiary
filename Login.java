@@ -18,6 +18,9 @@ class Login implements ActionListener,MouseListener,KeyListener {
         loginFrame.getContentPane().setBackground(new Color(60,91,111));
         loginFrame.setSize(1000, 700);
         loginFrame.setLocation(300, 50);
+        ImageIcon logoIcon = new ImageIcon("Image/icon.png");
+        Image logo=logoIcon.getImage();
+        loginFrame.setIconImage(logo);
         loginFrame.setShape(new RoundRectangle2D.Double(0, 0, loginFrame.getWidth(), loginFrame.getHeight(), 30, 30));
         //ADDING A NOTEBOOK SPIRAL
         ImageIcon getSpiralImage = new ImageIcon(ClassLoader.getSystemResource("Image/Spiral.png"));
@@ -120,7 +123,6 @@ class Login implements ActionListener,MouseListener,KeyListener {
         }
     }
 
-
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             actionPerformed(null);
@@ -133,7 +135,6 @@ class Login implements ActionListener,MouseListener,KeyListener {
 
     public void keyTyped(KeyEvent e) {
     }
-
 
     public void mouseClicked(MouseEvent e) {
         loginFrame.dispose();

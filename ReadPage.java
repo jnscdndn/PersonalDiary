@@ -33,6 +33,9 @@ public class ReadPage implements MouseListener, KeyListener{
         readPageFrame.getContentPane().setBackground(new Color(60,91,111));
         readPageFrame.setSize(1000, 700);
         readPageFrame.setLocation(300, 50);
+        ImageIcon logoIcon = new ImageIcon("Image/icon.png");
+        Image logo=logoIcon.getImage();
+        readPageFrame.setIconImage(logo);
         readPageFrame.setShape(new RoundRectangle2D.Double(0, 0, readPageFrame.getWidth(), readPageFrame.getHeight(), 30, 30));
         readPageFrame.addKeyListener(this);
 
