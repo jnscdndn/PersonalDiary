@@ -74,13 +74,14 @@ public class WritePage implements ActionListener,MouseListener{
         writeArea.setLineWrap(true);
         writeArea.setWrapStyleWord(true);
         writeArea.setOpaque(false);
+        writeArea.setForeground(Color.WHITE);
+
         writeArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
         writeArea.requestFocusInWindow();
         writeScrollPane = new JScrollPane(writeArea);
         writeScrollPane.setBounds(30, 130, 400, 400);
         writeScrollPane.getViewport().setOpaque(false);
         writeScrollPane.setBackground(new Color(186,108,91));
-        writeScrollPane.setForeground(Color.WHITE);
         writeScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
         // writeScrollPane.setBorder(BorderFactory.createLineBorder(new Color(216, 174, 126),2));
         Border border = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(255, 224, 181)), "Memory", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bell Mt", Font.PLAIN, 20), new Color(255, 224, 181));
