@@ -69,7 +69,8 @@ public class Front implements MouseListener, KeyListener {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            mouseClicked(null);
+            frontFrame.setVisible(false);
+            new Login();
         }
 
     }
