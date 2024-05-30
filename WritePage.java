@@ -238,8 +238,4 @@ public class WritePage implements ActionListener,MouseListener{
 
     public void mouseExited(MouseEvent e) {
     }
-
-    public static void main(String[] args) {
-        // new WritePage();
-    }
 }

@@ -1,5 +1,4 @@
 import java.awt.*;
-// import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.Connection;
 
@@ -50,9 +49,5 @@ public class Back {
             }
         }).start();
         
-    }
-    public static void main(String[] args) {
-        
-        // new Back();
     }
 }
